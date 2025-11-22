@@ -1,0 +1,358 @@
+body {
+  font-family: Arial;
+  margin: 20px;
+}
+
+.banner {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;   /* 啟用橫向滑動 */
+  gap: 16px;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory; /* 自動貼齊卡片（可選） */
+}
+
+.card {
+  min-width: 300px;   /* 卡片寬度，決定滑動效果 */
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 8px;
+  background: white;
+  scroll-snap-align: start;
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 3px solid red !important;
+}
+
+.card h3 { font-size: 14px; }
+.card p { font-size: 12px; }
+.card a { font-size: 16px; }
+
+/* ===== 漢堡按鈕 ===== */
+#hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 12px 14px;
+  font-size: 22px;
+  background: white;
+  border: 1px solid gray;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.2s ease;
+}
+
+#hamburger:hover {
+  transform: scale(1.1);
+}
+
+/* ===== 側欄 ===== */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background: #ffffff;
+  box-shadow: 3px 0 12px rgba(0,0,0,0.5);  /* 更清楚的陰影 */
+  padding: 20px;
+
+  /* 一開始完全移出畫面 */
+  transform: translateX(-120%);
+  transition: transform 0.35s ease;
+
+  z-index: 2000;
+}
+
+#sidebar h2 {
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+#sidebar ul li {
+  margin: 20px 0;
+}
+
+#sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  padding: 8px 12px;
+  display: block;
+  border-radius: 8px;
+  transition: background 0.2s ease, padding-left 0.2s ease;
+}
+
+/* 滑鼠滑過更明顯 */
+#sidebar ul li a:hover {
+  background: #f0f0f0;
+  padding-left: 18px;
+}
+
+/* 展開狀態：滑入 */
+#sidebar.active {
+  transform: translateX(0);
+}
+
+/* ===== 收回按鈕 ===== */
+#close-btn {
+  position: absolute;
+  top: 60px;
+  right: -40px; /* 一開始和側欄一起在外面 */
+  background: rgb(242, 242, 242);
+  border: 1px solid gray;
+  padding: 60px 12px;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+
+    /* 讓收回鍵跟著側欄一起滑動 */
+  transition: transform 0.35s ease;
+  transform: translateX(-100%);
+}
+
+#close-btn:hover {
+  background: #eeeeee;
+}
+
+/* 展開時：收回鍵跟著滑入 */
+#sidebar.active #close-btn {
+  transform: translateX(0);
+}
+
+body {
+  font-family: Arial;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  padding: 16px;
+  background: #f8f8f8;
+  margin: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+#map {
+  width: 100%;
+  height: 600px;
+}
+
+/* --- 浮動收藏按鈕 (IG-style heart) --- */
+
+.card {
+  position: relative;     /* 讓愛心能定位在卡片右上角 */
+}
+
+/* 漂浮右上角的愛心 */
+.fav-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 22px;
+  cursor: pointer;
+  user-select: none;
+
+  background: rgba(255,255,255,0.75);
+  padding: 4px 6px;
+  border-radius: 30%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+
+  transition: transform 0.15s ease;
+}
+
+/* 點擊微縮放 */
+.fav-icon:active {
+  transform: scale(1.2);
+}
+
+/* 已收藏（紅心） */
+.fav-icon.active {
+  color: red;
+}
+
+/* ===== 分類按鈕區 ===== */
+#category-bar {
+  display: flex;
+  justify-content: center;   /* ⭐ 讓按鈕置中 */
+  gap: 12px;
+  padding: 10px 16px;
+  flex-wrap: wrap;           /* 避免按鈕太多跑版，可自動換行 */
+}
+
+.cat-btn {
+  padding: 10px 18px;
+  font-size: 16px;
+  border: 1px solid #999;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.cat-btn:hover {
+  background: #f0f0f0;
+}
+
+.cat-btn.active {
+  background: #333;
+  color: white;
+}
+
+#search {
+  width: 80%;
+  max-width: 480px;
+  display: block;
+  margin: 10px auto;
+
+  padding: 12px 18px;
+  font-size: 18px;
+
+  border-radius: 12px;
+  border: 2px solid #ccc;
+}
+
+.detail-img {
+  width: 80%;        /* 調小圖片寬度，建議 60%~90% 自行調整 */
+  max-width: 400px;  /* 最多不超過 400px */
+  display: block;
+  margin: 20px auto; /* 置中 */
+  border-radius: 10px;
+}
+
+/* 整個區塊置中 */
+#detail {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 主標題置中 */
+#detail h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* 兩欄版面：左標題固定寬度，右內容可延伸 */
+.detail-row {
+  display: flex;
+  align-items: flex-start;
+  margin: 8px 0;
+}
+
+.detail-label {
+  width: 80px;        /* 左欄的標題寬度 */
+  text-align: center; /* 標題置中 */
+  font-weight: bold;
+}
+
+.detail-value {
+  flex: 1;            /* 右欄自動撐開 */
+  padding-left: 10px;
+}
+
+/* --- 廣告外框（新增紅色邊框） --- */
+#ad-box {
+  width: 100%;
+  height: 180px; 
+  border: 3px solid red;   /* 你要的紅框 */
+  overflow: hidden;
+  position: relative;
+  margin: 20px 0;
+}
+
+/* --- 廣告軌道：橫向排列 --- */
+#ad-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+/* --- 每張廣告 --- */
+.ad-slide {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;     /* 垂直置中 */
+  justify-content: center; /* 水平置中 */
+}
+
+/* --- 圖片置中 & 自適應 --- */
+.ad-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* --- 左右按鈕 --- */
+.ad-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.7);
+  border: 1px solid #333;
+  padding: 20px 12px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 6px;
+}
+
+#prev-ad { left: 10px; }
+#next-ad { right: 10px; }
+
+.ad-btn:hover {
+  background: white;
+}
+
+/* 圓點容器 */
+#ad-dots {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* 每個圓點 */
+.ad-dot {
+  width: 10px;
+  height: 10px;
+  background: #bfbfbf;
+  border-radius: 50%;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+/* 目前這張 */
+.ad-dot.active {
+  background: #555555;
+}
+
+/* 左右按鈕靠近中間 */
+#prev-ad {
+  left: 50px;   /* 原本10px → 往內 */
+}
+#next-ad {
+  right: 50px;  /* 原本10px → 往內 */
+}
