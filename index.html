@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <title>展覽整合平台</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<button id="hamburger">☰ 功能選單</button>
+<div id="sidebar">
+  <button id="close-btn">◁</button>
+  <h2>展覽平台選單</h2>
+  <ul>
+    <li><a href="map.html">地圖</a></li>
+    <li><a href="collect.html">我的收藏</a></li>
+    <li><a href="#">登出</a></li>
+  </ul>
+</div>
+
+  <center>
+    <h1>展覽整合平台</h1>
+    <input type="text" id="search" placeholder="搜尋展覽..." />
+    <div id="category-bar">
+    <button class="cat-btn" data-cat="all">全部</button>
+    <button class="cat-btn" data-cat="藝術">藝術</button>
+    <button class="cat-btn" data-cat="科技">科技</button>
+    <button class="cat-btn" data-cat="光影">光影</button>
+    <button class="cat-btn" data-cat="植物">植物</button>
+  </div>
+  </center>
+
+<!-- 廣告區域 -->
+<div id="ad-box">
+  <div id="ad-track"></div>
+  <!-- 左右切換按鈕 -->
+  <button id="prev-ad" class="ad-btn">◀</button>
+  <button id="next-ad" class="ad-btn">▶</button>
+  <!-- 下方圓點 -->
+  <div id="ad-dots"></div>
+</div>
+
+  <div id="exhibition-list" class="scroll-container"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
