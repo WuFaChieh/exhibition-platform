@@ -356,3 +356,77 @@ h1 {
 #next-ad {
   right: 50px;  /* 原本10px → 往內 */
 }
+
+/* Contact Section */
+.contact-section {
+    background: #26343e;
+    padding: 30px 20px;
+    color: #eee;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 0.4px;
+}
+
+.contact-container {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.contact-container h2 {
+    font-size: 40px;
+    margin-bottom: 25px;
+    color: #f5f5f5;
+}
+
+.contact-container address {
+    font-style: normal;
+    line-height: 1.9;
+    font-size: 20px;
+}
+
+.contact-container p i {
+    margin-right: 8px;
+    color: #bbb;
+}
+
+/* Link hover effect */
+.contact-container a {
+    color: #ccc;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.contact-container a:hover {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+/* Footer */
+.footer-section {
+    background: #111;
+    color: #ddd;
+    padding: 40px 20px 60px 20px;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 0.5px;
+    border-top: 1px solid #222;
+}
+
+.footer-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.footer-title {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.footer-text {
+    font-size: 14px;
+    color: #aaa;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 12px auto;
+}
