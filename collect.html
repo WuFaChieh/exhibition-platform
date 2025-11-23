@@ -5,6 +5,24 @@
   <title>我的收藏</title>
 
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* 建議你加個簡單樣式 */
+    #back-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      padding: 8px 12px;
+      font-size: 16px;
+      border: none;
+      background: #eee;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
+    #back-btn:hover {
+      background: #ddd;
+    }
+  </style>
 </head>
 
 <body>
@@ -13,6 +31,14 @@
   <!-- 只有 *一個* 清單容器 -->
   <div id="collect-list" class="scroll-container"></div>
 
+  <!-- 返回鍵 -->
+  <button id="back-btn">← 返回</button>
+  <script>
+    // 返回上一頁
+    document.getElementById("back-btn").addEventListener("click", () => {
+      window.location.href = "index.html"; //回首頁
+    });
+  </script>
   <script src="collect.js"></script>
 </body>
 </html>
