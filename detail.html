@@ -4,12 +4,37 @@
   <meta charset="UTF-8">
   <title>展覽資訊</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* 建議你加個簡單樣式 */
+    #back-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      padding: 8px 12px;
+      font-size: 16px;
+      border: none;
+      background: #eee;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
+    #back-btn:hover {
+      background: #ddd;
+    }
+  </style>
 </head>
 <body>
 
-  <div id="detail"></div>
+  <!-- 返回鍵 -->
+  <button id="back-btn">← 返回</button>
 
+  <div id="detail"></div>
   <script>
+    // 返回上一頁
+    document.getElementById("back-btn").addEventListener("click", () => {
+      window.location.href = "index.html"; //回首頁
+    });
+
     // 取得 URL 的 id 參數
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
@@ -19,7 +44,17 @@
       .then(data => {
         const item = data.find(e => e.id == id);
 
-        document.getElementById("detail").innerHTML = `
+        const detail = document.getElementById("detail");
+
+        if (!item) {
+          detail.innerHTML = `
+            <h1>找不到展覽資訊</h1>
+            <p>請確認網址中的 id 是否正確。</p>
+          `;
+          return;
+        }
+
+        detail.innerHTML = `
           <h1>${item.title}</h1>
           <img src="${item.image}" class="detail-img">
           <p><strong>日期：</strong>${item.date}</p>
