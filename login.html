@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>展覽會員登入</title>
+  <style>
+    /* 背景漸層 */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #07ae9d, #04a0c1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* 登入容器 */
+    .login-container {
+      background: #fff;
+      padding: 50px 40px;
+      border-radius: 12px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+      width: 360px;
+      max-width: 90%;
+      text-align: center;
+      position: relative;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity:0; transform: translateY(-20px);}
+      to {opacity:1; transform: translateY(0);}
+    }
+
+    /* 標題 */
+    .login-container h1 {
+      margin-bottom: 35px;
+      font-size: 30px;
+      color: #333;
+      letter-spacing: 1px;
+    }
+
+    /* 輸入框 */
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 90%;
+      padding: 14px 16px;
+      margin: 12px 0;
+      border: 1px solid #000000;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+
+    .login-container input:focus {
+      border-color: #07ae9d;
+      box-shadow: 0 0 8px rgba(7,174,157,0.3);
+      outline: none;
+    }
+
+    /* 登入按鈕 */
+    .login-container button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 25px;
+      border: none;
+      border-radius: 8px;
+      background-color: #07ae9d;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .login-container button:hover {
+      background-color: #049e8c;
+      transform: translateY(-2px);
+    }
+
+    /* 錯誤訊息 */
+    .error-msg {
+      color: red;
+      font-size: 14px;
+      margin-top: 15px;
+      display: none;
+    }
+
+    /* 小螢幕調整 */
+    @media (max-width: 400px) {
+      .login-container {
+        padding: 40px 20px;
+      }
+      .login-container h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h1>展覽會員登入</h1>
+
+    <input type="text" id="username" placeholder="帳號">
+    <input type="password" id="password" placeholder="密碼">
+
+    <button id="login-btn">登入</button>
+
+    <p class="error-msg" id="error-msg"></p>
+  </div>
+
+  <script>
+    const loginBtn = document.getElementById("login-btn");
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const errorMsg = document.getElementById("error-msg");
+
+    loginBtn.addEventListener("click", () => {
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      if (!username || !password) {
+        errorMsg.style.display = "block";
+        errorMsg.textContent = "帳號或密碼不能為空";
+        return;
+      }
+
+      // 假登入驗證，可替換成 AJAX 後端 API
+      if(username === "admin" && password === "1234"){
+        alert("登入成功！");
+        window.location.href = "index.html"; // 登入成功後跳轉首頁
+      } else {
+        errorMsg.style.display = "block";
+        errorMsg.textContent = "帳號或密碼錯誤";
+      }
+    });
+  </script>
+
+</body>
+</html>
