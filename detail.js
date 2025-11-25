@@ -19,3 +19,5 @@ document.getElementById("detail").innerHTML = `
 
   <p>${item.description}</p>
 `;
+
+div.textContent = text;

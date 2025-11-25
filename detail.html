@@ -8,16 +8,17 @@
     /* 建議你加個簡單樣式 */
     #back-btn {
       position: fixed;
-      top: 15px;
-      left: 15px;
-      padding: 8px 12px;
-      font-size: 16px;
-      border: none;
-      background: #eee;
+      top: 20px;
+      left: 20px;
+      padding: 8px 16px;
+      font-size: 18px;
+      border: 2px solid black;
+      background: white;
+      border-radius: 8px;
       cursor: pointer;
-      border-radius: 6px;
-      transition: 0.2s;
+      z-index: 900;
     }
+
     #back-btn:hover {
       background: #ddd;
     }
@@ -64,6 +65,59 @@
       });
   </script>
 
+  <center>
+  <div class="rating-box">
+  <div class="rating-stars" id="avg-stars"></div>
+    <div class="rating-info">
+      ★★★★☆
+      <span id="avg-score">4.3</span> / 5  
+      （<span id="rating-count">128</span> 人）
+    </div>
+  </div>
+  </center>
+
+   <style>
+    body { max-width: 600px; margin: 40px auto; }
+    #comment-form { margin-bottom: 20px; }
+    #comment-form textarea { width: 100%; height: 80px; }
+    .comment { padding: 10px; background: #f5f5f5; margin-bottom: 10px; border-radius: 8px; white-space: pre-wrap; }
+    .time { font-size: 12px; color: gray; margin-top: 4px; }
+  </style>
+
+  <h2>留言區</h2>
+
+  <div id="comment-form">
+    <textarea id="commentInput" placeholder="輸入留言..."></textarea>
+    <button onclick="addComment()">送出</button>
+  </div>
+
+  <div id="commentList"></div>
+
+  <script>
+    function addComment() {
+      const input = document.getElementById("commentInput");
+      const text = input.value;
+      if (!text.trim()) return;
+
+      const list = document.getElementById("commentList");
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "comment";
+
+      const content = document.createElement("div");
+      content.textContent = text;   // ⭐ 把內容當字串，不解析 HTML
+
+      const time = document.createElement("div");
+      time.className = "time";
+      time.textContent = new Date().toLocaleString();
+
+      wrapper.appendChild(content);
+      wrapper.appendChild(time);
+
+      list.prepend(wrapper);
+      input.value = "";
+    }
+  </script>
+
 </body>
 </html>
-

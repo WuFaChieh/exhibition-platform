@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>提交展訊</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 建議你加個簡單樣式 */
+    #back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 8px 16px;
+      font-size: 18px;
+      border: 2px solid black;
+      background: white;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 900;
+    }
+
+    #back-btn:hover {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  
+<!-- 返回按鈕 -->
+  <button id="back-btn">← 返回</button>
+  <!-- 返回功能 -->
+  <script>
+    document.getElementById("back-btn").addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
+  </script>
+
+<center>
+<div class="submit-container">
+  <h1>提交展覽資訊</h1>
+
+  <form id="submit-form">
+    <label>展訊連結：</label>
+    <input type="url" placeholder="貼上展覽官方連結…" required>
+
+    <label>展覽名稱：</label>
+    <input type="text" placeholder="如：光影藝術特展" required>
+
+    <label>地點：</label>
+    <input type="text" placeholder="如：台北市" required>
+
+    <label>日期：</label>
+    <input type="text" placeholder="如：2026/01/10 - 2026/03/15" required>
+
+    <button type="submit">提交展訊</button>
+  </form>
+
+  <p id="fake-msg"></p>
+</div>
+</center>
+
+<script src="submit.js"></script>
+
+</body>
+</html>

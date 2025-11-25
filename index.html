@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <title>展覽整合平台</title>
-  <link rel="stylesheet" href="style.css" />
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -17,9 +17,24 @@
   <ul>
     <li><a href="map.html">地圖</a></li>
     <li><a href="collect.html">我的收藏</a></li>
+    <li><a href="submit.html">提供展訊</a></li>
     <li><a href="login.html">登入</a></li>
   </ul>
 </div>
+
+<!-- 通知鈴鐺 -->
+<div class="notify-bell">
+  <i class="fa-solid fa-bell"></i>
+  <span id="notify-count">3</span>
+</div>
+
+<!-- 通知列表 -->
+<div id="notify-panel" class="notify-panel">
+  <p>🔥 近期展覽：[台北當代藝術展]</p>
+  <p>🆕 新展覽上架：[幻象之境]</p>
+  <p>⚠️ 異動：[自然之聲] 將展期延長至6/30</p>
+</div>
+
 
   <center>
     <h1>展覽整合平台</h1>
@@ -33,6 +48,7 @@
   </div>
   </center>
 
+  
 <!-- 廣告區域 -->
 <div id="ad-box">
   <div id="ad-track"></div>
@@ -46,7 +62,6 @@
   <div id="exhibition-list" class="scroll-container"></div>
 
   <script src="script.js"></script>
-
 
 <section class="contact-section">
   <div class="contact-container">
@@ -73,7 +88,7 @@
 
     <p class="footer-text">
       本網站上的所有圖像、藝術作品和展覽資料均受版權保護，<br>
-      未經相關藝術家或組織者的事先書面許可，不得複製、散佈或使用。
+      未經相關藝術家或組織的事先書面許可，不得複製、散佈或使用。
     </p>
 
     <p class="footer-text">
